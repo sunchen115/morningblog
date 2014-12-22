@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Morningblog : activerecord mysql">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Morningblog</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/sunchen115/morningblog">View on GitHub</a>
+
+          <h1 id="project_title">Morningblog</h1>
+          <h2 id="project_tagline">activerecord mysql</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/sunchen115/morningblog/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/sunchen115/morningblog/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="ruby使用activerecord与mysql交互" class="anchor" href="#ruby%E4%BD%BF%E7%94%A8activerecord%E4%B8%8Emysql%E4%BA%A4%E4%BA%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>ruby使用activerecord与mysql交互</h1>
+
+<p>为了防止多线程的app创建过多链接，导致mysql链接数满。activerecord引进线程池概念，即：一个app只能创建限定的链接，且这些链接被多线程复用</p>
+
+<h2>
+<a id="连接池connections" class="anchor" href="#%E8%BF%9E%E6%8E%A5%E6%B1%A0connections" aria-hidden="true"><span class="octicon octicon-link"></span></a>连接池connections</h2>
+
+<p>每创建一个线程，线程就会放进线程池</p>
+
+<h2>
+<a id="线程cache" class="anchor" href="#%E7%BA%BF%E7%A8%8Bcache" aria-hidden="true"><span class="octicon octicon-link"></span></a>线程cache</h2>
+
+<p>cache是一个key value的hash，key是线程唯一标示，value是可用的连接。</p>
+
+<h1>
+<a id="获取连接的过程" class="anchor" href="#%E8%8E%B7%E5%8F%96%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%BF%87%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取连接的过程</h1>
+
+<ol>
+<li>查cache</li>
+<li>connections non-wait pop</li>
+<li>如果没有达到连接上限，创建新连接； 否则wait connections pop</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Morningblog maintained by <a href="https://github.com/sunchen115">sunchen115</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
